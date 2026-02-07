@@ -6,6 +6,7 @@
     <title>Numérisud - Témoignages</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
@@ -128,10 +129,10 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-600">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+            <h1 id="hero-title" class="text-4xl md:text-5xl font-heading font-bold text-white mb-4" style="opacity:0; transform: translateY(40px)">
                 Témoignages
             </h1>
-            <p class="text-xl text-primary-100 max-w-2xl mx-auto">
+            <p id="hero-subtitle" class="text-xl text-primary-100 max-w-2xl mx-auto" style="opacity:0; transform: translateY(40px)">
                 Découvrez les témoignages des familles et élèves qui ont bénéficié du programme NumériSud.
             </p>
         </div>
@@ -369,6 +370,59 @@
 
             lastScroll = currentScroll;
         });
+
+        // ===== ANIME.JS ANIMATIONS =====
+
+        // Hero entrance
+        anime.timeline({ easing: 'easeOutExpo' })
+            .add({ targets: '#hero-title', translateY: [40, 0], opacity: [0, 1], duration: 1200 })
+            .add({ targets: '#hero-subtitle', translateY: [40, 0], opacity: [0, 1], duration: 1000 }, '-=800');
+
+        // Helpers
+        function animateOnScroll(selector, animationProps) {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(40px)'; });
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({ targets: entry.target, translateY: [40, 0], opacity: [0, 1], duration: 800, easing: 'easeOutExpo', ...animationProps });
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            elements.forEach(el => obs.observe(el));
+        }
+
+        function animateGroupOnScroll(containerSelector, childSelector, animationProps) {
+            const container = document.querySelector(containerSelector);
+            if (!container) return;
+            const children = container.querySelectorAll(childSelector);
+            children.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(40px)'; });
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({ targets: children, translateY: [40, 0], opacity: [0, 1], duration: 800, delay: anime.stagger(120), easing: 'easeOutExpo', ...animationProps });
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            obs.observe(container);
+        }
+
+        // Testimonial text (slide from left)
+        animateOnScroll('.py-20.bg-white .grid.lg\\:grid-cols-2 > div:first-child', { translateX: [-40, 0], translateY: [0, 0] });
+
+        // Testimonial letter image (slide from right)
+        animateOnScroll('.py-20.bg-white .rounded-2xl.shadow-2xl', { translateX: [40, 0], translateY: [0, 0], duration: 1000 });
+
+        // President quote
+        animateOnScroll('.py-20.bg-gradient-to-br .max-w-4xl', { duration: 1200, scale: [0.9, 1] });
+
+        // Impact stats (3 cards)
+        animateGroupOnScroll('.py-20.bg-gray-50 .grid.md\\:grid-cols-3', '.bg-white.rounded-2xl', { scale: [0.8, 1], duration: 600 });
+
+        // CTA section
+        animateOnScroll('.py-20.bg-white:last-of-type .text-center', { duration: 1000, scale: [0.95, 1] });
     </script>
 </body>
 </html>

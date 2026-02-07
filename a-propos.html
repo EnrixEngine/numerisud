@@ -6,6 +6,7 @@
     <title>Numérisud - À propos</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
@@ -136,10 +137,10 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-600">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+            <h1 id="hero-title" class="text-4xl md:text-5xl font-heading font-bold text-white mb-4" style="opacity:0; transform: translateY(40px)">
                 À propos de NumériSud
             </h1>
-            <p class="text-xl text-primary-100 max-w-2xl mx-auto">
+            <p id="hero-subtitle" class="text-xl text-primary-100 max-w-2xl mx-auto" style="opacity:0; transform: translateY(40px)">
                 Découvrez notre association, notre mission et les personnes qui s'engagent au quotidien pour la solidarité numérique.
             </p>
         </div>
@@ -221,7 +222,7 @@
     </section>
 
     <!-- Organigramme -->
-    <section class="py-20 bg-white overflow-hidden">
+    <section id="organigramme" class="py-20 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="inline-block px-4 py-2 bg-primary-50 text-primary-600 rounded-full text-sm font-semibold mb-4">
@@ -670,6 +671,89 @@
                 header.classList.remove('shadow-lg');
             }
         });
+
+        // ===== ANIME.JS ANIMATIONS =====
+
+        // Hero entrance
+        anime.timeline({ easing: 'easeOutExpo' })
+            .add({ targets: '#hero-title', translateY: [40, 0], opacity: [0, 1], duration: 1200 })
+            .add({ targets: '#hero-subtitle', translateY: [40, 0], opacity: [0, 1], duration: 1000 }, '-=800');
+
+        // Helpers
+        function animateOnScroll(selector, animationProps) {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(40px)'; });
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({ targets: entry.target, translateY: [40, 0], opacity: [0, 1], duration: 800, easing: 'easeOutExpo', ...animationProps });
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            elements.forEach(el => obs.observe(el));
+        }
+
+        function animateGroupOnScroll(containerSelector, childSelector, animationProps) {
+            const container = document.querySelector(containerSelector);
+            if (!container) return;
+            const children = container.querySelectorAll(childSelector);
+            children.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(40px)'; });
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({ targets: children, translateY: [40, 0], opacity: [0, 1], duration: 800, delay: anime.stagger(120), easing: 'easeOutExpo', ...animationProps });
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            obs.observe(container);
+        }
+
+        // Animate all major sections on scroll
+        document.querySelectorAll('section:not(:first-of-type) > div > .text-center:first-child, section:not(:first-of-type) > div > .grid').forEach(el => {
+            if (!el.closest('.pt-32')) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(40px)';
+            }
+        });
+
+        const sectionObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({ targets: entry.target, translateY: [40, 0], opacity: [0, 1], duration: 800, easing: 'easeOutExpo' });
+                    sectionObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('section:not(:first-of-type) > div > .text-center:first-child, section:not(:first-of-type) > div > .grid').forEach(el => {
+            if (!el.closest('.pt-32')) sectionObs.observe(el);
+        });
+
+        // Org chart cards with stagger
+        document.querySelectorAll('.org-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+        });
+
+        const orgObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.org-card');
+                    if (cards.length > 0) {
+                        anime({ targets: cards, translateY: [30, 0], opacity: [0, 1], duration: 600, delay: anime.stagger(100), easing: 'easeOutExpo',
+                            complete: function() { cards.forEach(c => { c.style.transform = ''; }); }
+                        });
+                    }
+                    orgObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Find org chart section and observe it
+        const orgSection = document.querySelector('#organigramme') || document.querySelectorAll('.py-20')[2];
+        if (orgSection) orgObs.observe(orgSection);
     </script>
 
 </body>
