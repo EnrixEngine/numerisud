@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numérisud - À propos</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#2478c2',
+                            600: '#1e67a8',
+                            700: '#18568e',
+                            800: '#124574',
+                            900: '#0c345a',
+                        },
+                        secondary: {
+                            500: '#5FA5E3',
+                            600: '#4a8fd0',
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Poppins', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2478c2;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2478c2 0%, #1e67a8 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1e67a8 0%, #18568e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(36, 120, 194, 0.3);
+        }
+        /* Organigramme styles */
+        .org-card {
+            transition: all 0.3s ease;
+        }
+        .org-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(36, 120, 194, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-body">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full top-0 z-50 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="image/erasebg-transformed.png" alt="Numérisud" class="h-14 w-auto group-hover:scale-105 transition-transform">
+                    <div class="ml-3">
+                        <span class="text-2xl font-heading font-bold text-gray-800 group-hover:text-primary-500 transition-colors">Numérisud</span>
+                        <p class="text-xs text-gray-500">Solidarité numérique</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Accueil</a>
+                    <a href="actualites.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Actualités</a>
+                    <a href="temoignage.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Témoignage</a>
+                    <a href="partenaires.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Partenaires</a>
+                    <a href="a-propos.html" class="nav-link active text-primary-500 font-semibold">À propos</a>
+                    <a href="cartes-des-ateliers.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Cartes des ateliers</a>
+                    <a href="entreprises.html" class="btn-primary text-white px-6 py-2.5 rounded-full font-semibold shadow-lg">
+                        Entreprises
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" id="mobile-menu-btn">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Accueil</a>
+                <a href="actualites.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Actualités</a>
+                <a href="temoignage.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Témoignage</a>
+                <a href="partenaires.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Partenaires</a>
+                <a href="a-propos.html" class="block py-2 text-primary-500 font-semibold">À propos</a>
+                <a href="cartes-des-ateliers.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Cartes des ateliers</a>
+                <a href="entreprises.html" class="block py-3 text-center btn-primary text-white rounded-full font-semibold">Entreprises</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+                À propos de NumériSud
+            </h1>
+            <p class="text-xl text-primary-100 max-w-2xl mx-auto">
+                Découvrez notre association, notre mission et les personnes qui s'engagent au quotidien pour la solidarité numérique.
+            </p>
+        </div>
+    </section>
+
+    <!-- Qui sommes-nous -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block px-4 py-2 bg-primary-50 text-primary-600 rounded-full text-sm font-semibold mb-6">
+                        Notre association
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+                        Qui sommes-nous ?
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-6">
+                        NumériSud est une association loi 1901 créée en 2020, engagée dans la lutte contre la fracture numérique au sein de l'académie de Nice.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-6">
+                        Notre mission est de collecter des ordinateurs auprès des entreprises et des particuliers, de les reconditionner grâce à nos ateliers pédagogiques, puis de les distribuer gratuitement aux élèves qui en ont besoin.
+                    </p>
+                    <p class="text-gray-600 text-lg">
+                        Nous croyons que chaque enfant mérite d'avoir accès aux outils numériques pour réussir sa scolarité et préparer son avenir.
+                    </p>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img
+                        src="image/631167_350151.webp"
+                        alt="Livraison d'ordinateurs NumériSud"
+                        class="w-full h-auto object-cover"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Le Président -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+                    Le mot du président
+                </h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img
+                                src="image/1616605921157.jpg"
+                                alt="François Bonny - Président de NumériSud"
+                                class="w-full h-full object-cover min-h-[300px]"
+                            >
+                        </div>
+                        <div class="md:w-2/3 p-8 md:p-10">
+                            <h3 class="text-2xl font-heading font-bold text-gray-900 mb-2">
+                                François Bonny
+                            </h3>
+                            <p class="text-primary-600 font-semibold mb-6">
+                                Président de NumériSud
+                            </p>
+                            <blockquote class="text-gray-600 text-lg italic mb-6 border-l-4 border-primary-500 pl-4">
+                                "Il est aujourd'hui extrêmement pénalisant pour les enfants de ne pas accéder à un ordinateur à la maison, ce sera pire demain..."
+                            </blockquote>
+                            <p class="text-gray-600 mb-4">
+                                Professeur de technologie et passionné par le numérique, François Bonny a fondé NumériSud avec une conviction forte : l'accès au numérique est un droit fondamental pour la réussite scolaire de tous les élèves.
+                            </p>
+                            <p class="text-gray-600">
+                                Depuis 2020, il coordonne les actions de l'association avec le soutien de l'académie de Nice, des entreprises partenaires et d'une équipe de bénévoles engagés.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organigramme -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-primary-50 text-primary-600 rounded-full text-sm font-semibold mb-4">
+                    Notre équipe
+                </span>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+                    Organigramme de NumériSud
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Une équipe passionnée et engagée pour la solidarité numérique
+                </p>
+            </div>
+
+            <!-- Président -->
+            <div class="flex justify-center">
+                <div class="org-card bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl px-8 py-6 text-white shadow-xl max-w-xs w-full text-center">
+                    <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-semibold mb-3">Président</span>
+                    <h3 class="text-xl font-heading font-bold">François Bonny</h3>
+                    <p class="text-primary-100 text-sm mt-1">Professeur de Technologie</p>
+                </div>
+            </div>
+
+            <!-- Ligne verticale vers Bureau -->
+            <div class="flex justify-center">
+                <div class="w-0.5 h-8 bg-gray-300"></div>
+            </div>
+
+            <!-- Connecteur Bureau (2 colonnes) -->
+            <div class="max-w-xl mx-auto relative h-6">
+                <!-- Ligne horizontale -->
+                <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gray-300"></div>
+                <!-- Traits verticaux vers les cartes (centrés avec transform) -->
+                <div class="absolute top-0 left-1/4 -translate-x-1/2 w-0.5 h-6 bg-gray-300"></div>
+                <div class="absolute top-0 left-3/4 -translate-x-1/2 w-0.5 h-6 bg-gray-300"></div>
+            </div>
+
+            <!-- Bureau - Trésorière et Secrétaire -->
+            <div class="grid grid-cols-2 gap-6 max-w-xl mx-auto mb-2">
+                <div class="org-card bg-white rounded-xl px-5 py-4 shadow-lg border-2 border-primary-200 text-center">
+                    <span class="inline-block px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-semibold mb-2">Trésorière</span>
+                    <h4 class="font-heading font-bold text-gray-900">Delphine Girod</h4>
+                    <p class="text-gray-500 text-sm">Professeure d'Anglais</p>
+                </div>
+
+                <div class="org-card bg-white rounded-xl px-5 py-4 shadow-lg border-2 border-primary-200 text-center">
+                    <span class="inline-block px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-semibold mb-2">Secrétaire</span>
+                    <h4 class="font-heading font-bold text-gray-900">Sandra Lamy</h4>
+                    <p class="text-gray-500 text-sm">Réf. développement durable SNCF</p>
+                </div>
+            </div>
+
+            <!-- Ligne verticale vers Équipe technique -->
+            <div class="flex justify-center">
+                <div class="w-0.5 h-8 bg-gray-300"></div>
+            </div>
+
+            <!-- Connecteur Équipe technique (4 colonnes) -->
+            <div class="max-w-4xl mx-auto relative h-6">
+                <!-- Ligne horizontale -->
+                <div class="absolute top-0 left-[12.5%] right-[12.5%] h-0.5 bg-green-300"></div>
+                <!-- Traits verticaux vers les cartes (centrés avec transform) -->
+                <div class="absolute top-0 left-[12.5%] -translate-x-1/2 w-0.5 h-6 bg-green-300"></div>
+                <div class="absolute top-0 left-[37.5%] -translate-x-1/2 w-0.5 h-6 bg-green-300"></div>
+                <div class="absolute top-0 left-[62.5%] -translate-x-1/2 w-0.5 h-6 bg-green-300"></div>
+                <div class="absolute top-0 left-[87.5%] -translate-x-1/2 w-0.5 h-6 bg-green-300"></div>
+            </div>
+
+            <!-- Équipe technique -->
+            <div class="grid grid-cols-4 gap-4 max-w-4xl mx-auto mb-2">
+                <div class="org-card bg-white rounded-xl px-4 py-4 shadow-md border border-green-200 text-center">
+                    <span class="inline-block px-2 py-0.5 bg-green-50 text-green-600 rounded-full text-xs font-semibold mb-2">Traductrice</span>
+                    <h4 class="font-heading font-semibold text-gray-900 text-sm">Delphine Girod</h4>
+                </div>
+
+                <div class="org-card bg-white rounded-xl px-4 py-4 shadow-md border border-green-200 text-center">
+                    <span class="inline-block px-2 py-0.5 bg-green-50 text-green-600 rounded-full text-xs font-semibold mb-2">Expert Comptable</span>
+                    <h4 class="font-heading font-semibold text-gray-900 text-sm">Patrick Artinian</h4>
+                    <p class="text-gray-400 text-xs">Cabinet Care VFM</p>
+                </div>
+
+                <div class="org-card bg-white rounded-xl px-4 py-4 shadow-md border border-green-200 text-center">
+                    <span class="inline-block px-2 py-0.5 bg-green-50 text-green-600 rounded-full text-xs font-semibold mb-2">Conseiller Info.</span>
+                    <h4 class="font-heading font-semibold text-gray-900 text-sm">Vincent Boyer</h4>
+                </div>
+
+                <div class="org-card bg-white rounded-xl px-4 py-4 shadow-md border border-green-200 text-center">
+                    <span class="inline-block px-2 py-0.5 bg-green-50 text-green-600 rounded-full text-xs font-semibold mb-2">Webmaster</span>
+                    <h4 class="font-heading font-semibold text-gray-900 text-sm">Esteban Bonny</h4>
+                    <p class="text-gray-400 text-xs">Étudiant INSA</p>
+                </div>
+            </div>
+
+            <!-- Ligne verticale vers Coordinateurs -->
+            <div class="flex justify-center">
+                <div class="w-0.5 h-8 bg-gray-300"></div>
+            </div>
+
+            <!-- Connecteur Coordinateurs (5 colonnes) -->
+            <div class="max-w-5xl mx-auto relative h-6">
+                <!-- Ligne horizontale -->
+                <div class="absolute top-0 left-[10%] right-[10%] h-0.5 bg-orange-300"></div>
+                <!-- Traits verticaux vers les cartes (centrés avec transform) -->
+                <div class="absolute top-0 left-[10%] -translate-x-1/2 w-0.5 h-6 bg-orange-300"></div>
+                <div class="absolute top-0 left-[30%] -translate-x-1/2 w-0.5 h-6 bg-orange-300"></div>
+                <div class="absolute top-0 left-[50%] -translate-x-1/2 w-0.5 h-6 bg-orange-300"></div>
+                <div class="absolute top-0 left-[70%] -translate-x-1/2 w-0.5 h-6 bg-orange-300"></div>
+                <div class="absolute top-0 left-[90%] -translate-x-1/2 w-0.5 h-6 bg-orange-300"></div>
+            </div>
+
+            <!-- Coordinateurs -->
+            <div class="grid grid-cols-5 gap-3 max-w-5xl mx-auto mb-2">
+                <div class="org-card bg-gradient-to-br from-orange-50 to-white rounded-lg px-3 py-4 shadow-sm border border-orange-200 text-center">
+                    <h4 class="font-semibold text-gray-900 text-xs">Vincent Boyer</h4>
+                    <p class="text-orange-500 text-xs font-medium">Alpes-Maritimes</p>
+                </div>
+
+                <div class="org-card bg-gradient-to-br from-orange-50 to-white rounded-lg px-3 py-4 shadow-sm border border-orange-200 text-center">
+                    <h4 class="font-semibold text-gray-900 text-xs">Platon Fanelli</h4>
+                    <p class="text-orange-500 text-xs font-medium">Lycée Langevin</p>
+                </div>
+
+                <div class="org-card bg-gradient-to-br from-orange-50 to-white rounded-lg px-3 py-4 shadow-sm border border-orange-200 text-center">
+                    <h4 class="font-semibold text-gray-900 text-xs">Satellite DSE</h4>
+                    <p class="text-orange-500 text-xs font-medium">Canopé 83</p>
+                </div>
+
+                <div class="org-card bg-gradient-to-br from-orange-50 to-white rounded-lg px-3 py-4 shadow-sm border border-orange-200 text-center">
+                    <h4 class="font-semibold text-gray-900 text-xs">Nicolas Giudice</h4>
+                    <p class="text-orange-500 text-xs font-medium">Toulon Solidarité</p>
+                </div>
+
+                <div class="org-card bg-gradient-to-br from-orange-50 to-white rounded-lg px-3 py-4 shadow-sm border border-orange-200 text-center">
+                    <h4 class="font-semibold text-gray-900 text-xs">C. Torquet & équipe</h4>
+                    <p class="text-orange-500 text-xs font-medium">Bénévoles</p>
+                </div>
+            </div>
+
+            <!-- Ligne verticale vers Élèves -->
+            <div class="flex justify-center">
+                <div class="w-0.5 h-8 bg-gray-300"></div>
+            </div>
+
+            <!-- Base - Élèves -->
+            <div class="max-w-3xl mx-auto">
+                <div class="org-card bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl px-6 py-6 text-white shadow-xl text-center">
+                    <span class="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-semibold mb-3">Ateliers de recyclage</span>
+                    <h3 class="text-xl font-heading font-bold mb-2">Lycéens et Collégiens</h3>
+                    <p class="text-purple-100 text-sm max-w-xl mx-auto">
+                        Encadrés par leurs enseignants dans les ateliers de recyclage des établissements de l'académie
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2 mt-4">
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Lucinda</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Iyad</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Richemi</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Rayane</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">+ de 100 élèves</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Notre mission -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+                    Notre mission
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Lutter contre la fracture numérique en offrant aux élèves les outils dont ils ont besoin pour réussir.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-4">Collecter</h3>
+                    <p class="text-gray-600">
+                        Récupérer les ordinateurs inutilisés auprès des entreprises et des particuliers pour leur donner une seconde vie.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-4">Reconditionner</h3>
+                    <p class="text-gray-600">
+                        Remettre en état les ordinateurs dans nos ateliers pédagogiques avec l'aide des élèves des filières informatiques.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-4">Distribuer</h3>
+                    <p class="text-gray-600">
+                        Offrir gratuitement les ordinateurs aux élèves boursiers de l'académie de Nice qui n'ont pas d'équipement à domicile.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos valeurs -->
+    <section class="py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+                    Nos valeurs
+                </h2>
+                <p class="text-primary-100 text-lg max-w-2xl mx-auto">
+                    Les principes qui guident notre action au quotidien.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Solidarité</h3>
+                    <p class="text-primary-200 text-sm">
+                        Agir ensemble pour réduire les inégalités numériques.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Écologie</h3>
+                    <p class="text-primary-200 text-sm">
+                        Donner une seconde vie aux équipements informatiques.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Éducation</h3>
+                    <p class="text-primary-200 text-sm">
+                        Former les élèves aux métiers du numérique.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Partenariat</h3>
+                    <p class="text-primary-200 text-sm">
+                        Travailler avec les entreprises et l'Éducation nationale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chiffres clés -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-primary-50 text-primary-600 rounded-full text-sm font-semibold mb-4">
+                    Notre impact
+                </span>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+                    Chiffres clés
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-heading font-bold text-primary-600 mb-2">4000+</div>
+                    <p class="text-gray-600">Ordinateurs distribués</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-heading font-bold text-primary-600 mb-2">60+</div>
+                    <p class="text-gray-600">Établissements partenaires</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-heading font-bold text-primary-600 mb-2">90 %</div>
+                    <p class="text-gray-600">Taux de reconditionnement</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-heading font-bold text-primary-600 mb-2">100%</div>
+                    <p class="text-gray-600">Gratuit pour les élèves</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+                Rejoignez l'aventure NumériSud
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                Entreprises, particuliers, établissements scolaires : ensemble, luttons contre la fracture numérique.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="entreprises.html" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Entreprises, donnez vos ordinateurs
+                </a>
+                <a href="faq.html" class="bg-white text-primary-600 border-2 border-primary-500 px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center hover:bg-primary-50 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Consulter la FAQ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="index.html" class="inline-block mb-6">
+                        <img src="image/erasebg-transformed.png" alt="Numérisud" class="h-12 w-auto">
+                    </a>
+                    <p class="text-gray-400 mb-6">
+                        Association engagée dans la lutte contre la fracture numérique et pour l'inclusion digitale de tous.
+                    </p>
+                    <!-- Réseaux sociaux -->
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/numerisudschool" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/numerisud" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="hover:text-primary-400 transition-colors">Accueil</a></li>
+                        <li><a href="a-propos.html" class="hover:text-primary-400 transition-colors">À propos</a></li>
+                        <li><a href="actualites.html" class="hover:text-primary-400 transition-colors">Actualités</a></li>
+                        <li><a href="temoignage.html" class="hover:text-primary-400 transition-colors">Témoignage</a></li>
+                        <li><a href="partenaires.html" class="hover:text-primary-400 transition-colors">Partenaires</a></li>
+                        <li><a href="cartes-des-ateliers.html" class="hover:text-primary-400 transition-colors">Cartes des ateliers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Contactez-nous</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <a href="tel:0623310841" class="hover:text-primary-400 transition-colors">06 23 31 08 41</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <a href="mailto:Francois.Bonny@ac-nice.fr" class="hover:text-primary-400 transition-colors">Francois.Bonny@ac-nice.fr</a>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 mt-0.5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Académie de Nice, France</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Restez informé de nos actualités</p>
+                    <form class="flex flex-col space-y-3">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 transition-colors">
+                        <button type="submit" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors">
+                            S'inscrire
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm">&copy; 2025 Numérisud. Tous droits réservés.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="mentions-legales.html" class="text-sm hover:text-primary-400 transition-colors">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+
+</body>
+</html>

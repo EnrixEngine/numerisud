@@ -1,0 +1,24 @@
+# Headers de sécurité pour Netlify
+# Ces headers s'appliquent à toutes les pages du site
+
+/*
+  # Protection contre le clickjacking
+  X-Frame-Options: DENY
+
+  # Empêche le navigateur de deviner le type MIME
+  X-Content-Type-Options: nosniff
+
+  # Protection XSS (navigateurs anciens)
+  X-XSS-Protection: 1; mode=block
+
+  # Politique de référent
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Désactive les fonctionnalités sensibles non utilisées
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+
+  # Force HTTPS
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Content Security Policy (adapté pour Tailwind CDN, EmailJS et YouTube)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://api.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com; frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'

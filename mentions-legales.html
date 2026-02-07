@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales - Numérisud</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#1a6aa3',
+                            600: '#166490',
+                            700: '#125a82',
+                            800: '#0e4a6b',
+                            900: '#0a3a55',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .btn-primary {
+            background: linear-gradient(135deg, #1a6aa3 0%, #125a82 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #166490 0%, #0e4a6b 100%);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-body">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full top-0 z-50 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="image/erasebg-transformed.png" alt="Numérisud" class="h-14 w-auto group-hover:scale-105 transition-transform">
+                    <div class="ml-3">
+                        <span class="text-2xl font-heading font-bold text-gray-800 group-hover:text-primary-500 transition-colors">Numérisud</span>
+                        <p class="text-xs text-gray-500">Solidarité numérique</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Accueil</a>
+                    <a href="actualites.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Actualités</a>
+                    <a href="temoignage.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Témoignage</a>
+                    <a href="partenaires.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Partenaires</a>
+                    <a href="a-propos.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">À propos</a>
+                    <a href="cartes-des-ateliers.html" class="nav-link text-gray-600 hover:text-primary-500 font-medium transition-colors">Cartes des ateliers</a>
+                    <a href="entreprises.html" class="btn-primary text-white px-6 py-2.5 rounded-full font-semibold shadow-lg">
+                        Entreprises
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Accueil</a>
+                <a href="actualites.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Actualités</a>
+                <a href="temoignage.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Témoignage</a>
+                <a href="partenaires.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Partenaires</a>
+                <a href="a-propos.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">À propos</a>
+                <a href="cartes-des-ateliers.html" class="block py-2 text-gray-600 hover:text-primary-500 font-medium">Cartes des ateliers</a>
+                <a href="entreprises.html" class="block py-3 text-center btn-primary text-white rounded-full font-semibold">Entreprises</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+                Mentions légales
+            </h1>
+            <p class="text-xl text-primary-100 max-w-2xl mx-auto">
+                Informations légales concernant le site NumériSud
+            </p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Éditeur du site -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    1. Éditeur du site
+                </h2>
+                <div class="bg-gray-50 rounded-xl p-6 space-y-3">
+                    <p><strong class="text-gray-900">Nom de l'association :</strong> NumériSud</p>
+                    <p><strong class="text-gray-900">Forme juridique :</strong> Association loi 1901</p>
+                    <p><strong class="text-gray-900">Siège social :</strong> Résidence Méditerranée B, 212 Impasse Fontainebleau, 83500 LA SEYNE SUR MER</p>
+                    <p><strong class="text-gray-900">SIRET :</strong> 909 207 482 00011</p>
+                    <p><strong class="text-gray-900">Code APE :</strong> 9499Z (Autres organisations fonctionnant par adhésion volontaire)</p>
+                    <p><strong class="text-gray-900">Téléphone :</strong> <a href="tel:0623310841" class="text-primary-500 hover:underline">06 23 31 08 41</a></p>
+                    <p><strong class="text-gray-900">Email :</strong> <a href="mailto:Francois.Bonny@ac-nice.fr" class="text-primary-500 hover:underline">Francois.Bonny@ac-nice.fr</a></p>
+                </div>
+            </div>
+
+            <!-- Directeur de publication -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    2. Directeur de la publication
+                </h2>
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <p><strong class="text-gray-900">Nom :</strong> François Bonny</p>
+                    <p><strong class="text-gray-900">Qualité :</strong> Président de l'association NumériSud</p>
+                </div>
+            </div>
+
+            <!-- Hébergement -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    3. Hébergement
+                </h2>
+                <div class="bg-gray-50 rounded-xl p-6 space-y-3">
+                    <p><strong class="text-gray-900">Hébergeur :</strong> Netlify, Inc.</p>
+                    <p><strong class="text-gray-900">Adresse :</strong> 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis</p>
+                    <p><strong class="text-gray-900">Site web :</strong> <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:underline">www.netlify.com</a></p>
+                </div>
+            </div>
+
+            <!-- Propriété intellectuelle -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    4. Propriété intellectuelle
+                </h2>
+                <div class="prose prose-gray max-w-none">
+                    <p class="text-gray-600 mb-4">
+                        L'ensemble du contenu de ce site (textes, images, vidéos, logos, icônes, etc.) est la propriété exclusive de l'association NumériSud ou de ses partenaires, sauf mention contraire.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Toute reproduction, distribution, modification, adaptation, retransmission ou publication de ces éléments est strictement interdite sans l'accord écrit préalable de NumériSud.
+                    </p>
+                    <p class="text-gray-600">
+                        La reproduction sur support papier est autorisée sous réserve de citer explicitement le site numerisud.com comme source et de mentionner que les droits de reproduction sont réservés.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Protection des données -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    5. Protection des données personnelles
+                </h2>
+                <div class="prose prose-gray max-w-none">
+                    <p class="text-gray-600 mb-4">
+                        Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Pour exercer ces droits, vous pouvez nous contacter :
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+                        <li>Par email : <a href="mailto:Francois.Bonny@ac-nice.fr" class="text-primary-500 hover:underline">Francois.Bonny@ac-nice.fr</a></li>
+                        <li>Par courrier : NumériSud, Résidence Méditerranée B, 212 Impasse Fontainebleau, 83500 LA SEYNE SUR MER</li>
+                    </ul>
+                    <p class="text-gray-600">
+                        Les informations collectées via les formulaires de contact sont uniquement destinées à répondre à vos demandes et ne sont en aucun cas cédées à des tiers.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Effacement des données sur matériel récupéré -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    6. Effacement des données sur le matériel récupéré
+                </h2>
+                <div class="bg-primary-50 border-l-4 border-primary-500 rounded-r-xl p-6">
+                    <p class="text-gray-700 mb-4">
+                        Les ordinateurs récupérés par l'association NumériSud sont distribués aux ateliers de recyclage situés dans les collèges et lycées de l'académie de Nice.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Les élèves de ces ateliers, sous la surveillance d'un professeur, installent un nouveau système d'exploitation Linux et <strong>effacent ainsi toutes les données du disque dur</strong>. Ces ordinateurs sont ensuite donnés aux élèves en fracture numérique.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Toutefois, un informaticien chevronné serait à même de récupérer ces données (ce n'est pas le cas des élèves en fracture numérique qui n'ont jamais eu d'ordinateur).
+                    </p>
+                    <p class="text-gray-700">
+                        <strong>Si votre entreprise a des données ultra sensibles, vous pouvez simplement enlever le disque dur avant de nous confier le matériel.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cookies -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    7. Cookies
+                </h2>
+                <div class="prose prose-gray max-w-none">
+                    <p class="text-gray-600 mb-4">
+                        Ce site n'utilise pas de cookies de tracking ou de publicité. Seuls des cookies techniques essentiels au fonctionnement du site peuvent être utilisés.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Responsabilité -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    8. Limitation de responsabilité
+                </h2>
+                <div class="prose prose-gray max-w-none">
+                    <p class="text-gray-600 mb-4">
+                        NumériSud s'efforce d'assurer au mieux l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, NumériSud ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.
+                    </p>
+                    <p class="text-gray-600">
+                        En conséquence, NumériSud décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur ce site.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Liens externes -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    9. Liens externes
+                </h2>
+                <div class="prose prose-gray max-w-none">
+                    <p class="text-gray-600">
+                        Ce site peut contenir des liens vers des sites externes. NumériSud n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Droit applicable -->
+            <div>
+                <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6 pb-2 border-b-2 border-primary-500">
+                    10. Droit applicable
+                </h2>
+                <div class="prose prose-gray max-w-none">
+                    <p class="text-gray-600">
+                        Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="index.html" class="inline-block mb-6">
+                        <img src="image/erasebg-transformed.png" alt="Numérisud" class="h-12 w-auto">
+                    </a>
+                    <p class="text-gray-400 mb-6">
+                        Association engagée dans la lutte contre la fracture numérique et pour l'inclusion digitale de tous.
+                    </p>
+                    <!-- Réseaux sociaux -->
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/numerisudschool" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/numerisud" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="hover:text-primary-400 transition-colors">Accueil</a></li>
+                        <li><a href="actualites.html" class="hover:text-primary-400 transition-colors">Actualités</a></li>
+                        <li><a href="temoignage.html" class="hover:text-primary-400 transition-colors">Témoignage</a></li>
+                        <li><a href="partenaires.html" class="hover:text-primary-400 transition-colors">Partenaires</a></li>
+                        <li><a href="cartes-des-ateliers.html" class="hover:text-primary-400 transition-colors">Cartes des ateliers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Contactez-nous</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <a href="tel:0623310841" class="hover:text-primary-400 transition-colors">06 23 31 08 41</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <a href="mailto:Francois.Bonny@ac-nice.fr" class="hover:text-primary-400 transition-colors">Francois.Bonny@ac-nice.fr</a>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 mt-0.5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>83500 La Seyne-sur-Mer</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Restez informé de nos actualités</p>
+                    <form class="flex flex-col space-y-3">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 transition-colors">
+                        <button type="submit" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors">
+                            S'inscrire
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm">&copy; 2025 Numérisud. Tous droits réservés.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="mentions-legales.html" class="text-sm text-primary-400 hover:text-primary-300 transition-colors">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
