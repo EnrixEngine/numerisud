@@ -787,22 +787,22 @@
                 opacity: [0, 1],
                 duration: 800,
                 delay: anime.stagger(150),
+                complete: function() {
+                    // 2. Counter animation - starts only after cards are fully visible
+                    document.querySelectorAll('.counter').forEach(el => {
+                        const target = parseInt(el.dataset.value);
+                        const obj = { val: 0 };
+                        anime({
+                            targets: obj,
+                            val: target,
+                            round: 1,
+                            duration: 2000,
+                            easing: 'easeOutExpo',
+                            update: () => { el.textContent = obj.val; }
+                        });
+                    });
+                }
             }, '-=400');
-
-        // 2. Counter animation
-        document.querySelectorAll('.counter').forEach(el => {
-            const target = parseInt(el.dataset.value);
-            const obj = { val: 0 };
-            anime({
-                targets: obj,
-                val: target,
-                round: 1,
-                duration: 2000,
-                delay: 1200,
-                easing: 'easeOutExpo',
-                update: () => { el.textContent = obj.val; }
-            });
-        });
 
         // 3. Floating circles
         anime({
